@@ -15,10 +15,12 @@ android {
     productFlavors {
         wrongDependencyCrash {
             versionNameSuffix "-crash"
+            applicationIdSuffix ".crash"
         }
 
         correctDependency {
             versionNameSuffix "-noCrash"
+            applicationIdSuffix ".noCrash"
         }
     }
 
