@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">LG Crash Pattern</string>
+    <string name="trigger_crash_notification">Trigger notification crash</string>
+    <string name="trigger_lg_safe_notification">Trigger \'LG safe\' notification</string>
+</resources>

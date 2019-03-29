@@ -1,0 +1,38 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "de.hannogoedecke.lgcrashpattern"
+        minSdkVersion 21
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    flavorDimensions "version"
+    productFlavors {
+        wrongDependencyCrash {
+            versionNameSuffix "-crash"
+        }
+
+        correctDependency {
+            versionNameSuffix "-noCrash"
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility = '1.8'
+        targetCompatibility = '1.8'
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'androidx.appcompat:appcompat:1.1.0-alpha03'
+    // Correct android media dependency
+    correctDependencyImplementation group: 'androidx.media', name: 'media', version: '1.1.0-alpha03'
+    // Wrong android media dependency (support v4 library)
+    wrongDependencyCrashImplementation 'com.android.support:support-media-compat:28.0.0'
+}
